@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout Videos</title>
+    <style>
+        
+    body {
+      font-family: "Lato", sans-serif;
+      transition: background-color .5s;
+      background-image: linear-gradient(to right, rgb(177, 243, 239) , rgb(255, 255, 255), rgb(255, 255, 255), rgb(255, 255, 255),rgb(177, 243, 239));
+}
+    
+    
+        .container {
+        width: 500px; 
+        height: 300px; 
+        background-color: #fbfafa;
+        border: 1px solid #f8f8f8;
+        padding: 50px;
+        box-sizing: border-box; 
+    }
+        .dimmed-bg {
+            background-color: rgba(255, 255, 255, 0.7); /* Dimmed background color */
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .category {
+            margin-bottom: 20px;
+        }
+
+        .category h2 {
+            margin-bottom: 10px;
+        }
+
+        .images {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .image {
+            width: 250px;
+            height:350px;
+            margin: 25px;
+            padding:10px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            background-color: #648ff46f;
+        }
+
+        .image img {
+            width: 230px;
+            height:200px;
+            border-radius: 5px;
+        }
+
+        .image h3 {
+            margin: 5px 0;
+        }
+
+        .image p {
+            font-size: 14px;
+            color: #666;
+            margin: 5px 0;
+        }
+    
+    .sidenav {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #111;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+    }
+    
+    .sidenav a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 25px;
+      color: #818181;
+      display: block;
+      transition: 0.3s;
+    }
+    
+    .sidenav a:hover {
+      color: #f1f1f1;
+    }
+    
+    .sidenav .closebtn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;
+    }
+    
+    #main {
+      transition: margin-left .5s;
+      padding: 16px;
+    }
+    
+    @media screen and (max-height: 450px) {
+      .sidenav {padding-top: 15px;}
+      .sidenav a {font-size: 18px;}
+    }
+  
+
+    .image:hover {
+        background-color: #648ff4;
+    }
+
+    
+    </style>
+    </head>
+    <body>
+    
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="home page.html" style="text-decoration:none">HOME</a>
+      <a href="./chatgpt.html" style="text-decoration:none">CHATBOT</a>
+      <a href="#">ABOUT US</a>
+    </div>
+    
+    
+    
+    <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+      document.getElementById("main").style.marginLeft = "250px";
+      document.body.style.background = "rgba(0,0,0,0.4)";
+    }
+    
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+      document.getElementById("main").style.marginLeft= "0";
+      document.body.style.background = "linear-gradient(to right, rgb(177, 243, 239) , rgb(255, 255, 255), rgb(255, 255, 255), rgb(255, 255, 255),rgb(177, 243, 239))";
+    }
+    function toggleDimmedColor() {
+        var container = document.getElementById('container');
+        container.classList.toggle('dimmed-bg');
+    }
+    </script>
+     <div id="main">
+      <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;Browse</span>
+   
+        <h1 style="color:rgb(31, 1, 88);text-shadow:2px">ACTIVITIES OFFERED BY FITFUEL</h1>
+        
+            <div class="category">
+                <center><h2 font="italic small-caps bold 12px/30px Georgia, serif">WORKOUTS,YOGA and DIET PLANS</h2></center>
+                <div class="images">
+                    
+                    
+                    <div class="image">
+                        <a href="./yoga.html" style="text-decoration:none">
+                        <img src="./home-workout-lead-1584370797.jpg" alt="Image">
+                        <h3>Basic workouts </h3>
+                        <p style="color:rgb(2, 11, 50)">"Basic workout: push-ups, squats, lunges, planks. 
+                            Strengthen muscles, improve flexibility, and boost overall fitness with these exercises."<br><br><br><br></p></a>
+                    </div>
+                    
+                        
+                    <div class="image">
+                        <a href="./workout.html" style="text-decoration:none">
+                        <img src="./priee2.jpg" alt="Image">
+                        <h3>Advanced Strength Workout</h3>
+                        <p style="color:rgb(2, 11, 50)">"Advanced workouts: deadlifts, pull-ups, burpees, kettlebell swings. 
+                            Enhance strength, endurance, and agility for a challenging fitness regimen."</p></a>
+                    </div>
+                    
+                    <div class="image">
+                        <a href="./diet.html" style="text-decoration:none">
+                        <img src="unnamed.jpg" alt="Image">
+                        <h3>Regular diet plans</h3>
+                        <p style="color:rgb(2, 11, 50)">"Diet plans: balanced meals, lean proteins, whole grains, fruits, vegetables. 
+                            Fuel your body for optimal health, energy, and weight management."</p></a>
+                    </div>
+                        
+                    <div class="image">
+                        <a href="./bmi.html" style="text-decoration:none">
+                        <img src="bmiimage.jpg" alt="Image">
+                        <h3>Calculate your BMI</h3>
+                        <p style="color:rgb(2, 11, 50)">"BMI calculations: weight (kg) / height (m)^2. 
+                            Assess body composition for health risk, fitness goals, and overall well-being."</p></a>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="category">
+                <center><h2>Daily schedules</h2></center>
+                <div class="images">
+                    
+                    <div class="image">
+                        <img src="./monday.jpg" alt="Image">
+                        <h3>MONDAY MOODS</h3>
+                        <p style="color:rgb(2, 11, 50)">"Monday: Cardio and strength training. 
+                            Include lean proteins, whole grains, and veggies in meals for energy and muscle recovery."</p>
+                    </div>
+                    
+                    <div class="image">
+                        <img src="./tuesday.jpg" alt="Image">
+                        <h3>TUESDAY DUTIES</h3>
+                        <p style="color:rgb(2, 11, 50)">"Tuesday: Upper body workout. 
+                            Focus on proteins, healthy fats, and fiber-rich foods for muscle repair and sustained energy."</p>
+                    </div>
+                    
+                    <div class="image">
+                        <img src="./wednesday.png" alt="Image">
+                        <h3>WEDNESDAY VIBES</h3>
+                        <p style="color:rgb(2, 11, 50)">"Wednesday: Lower body workout. 
+                            Eat lean proteins, complex carbs, and leafy greens to support muscle recovery and endurance."</p>
+                    </div>
+                    <div class="image">
+                        <img src="./thurs.jpg" alt="Image">
+                        <h3>THURSDAY TRICKS</h3>
+                        <p style="color:rgb(2, 11, 50)">"Thursday: Core and flexibility training. 
+                            Include protein, healthy fats, and colorful vegetables for muscle strength and recovery."</p>
+                    </div>
+                    <div class="image">
+                        <img src="./friday.jpg" alt="Image">
+                        <h3>FRIDAY FEELS</h3>
+                        <p style="color:rgb(2, 11, 50)">"Friday: Full-body workout. 
+                            Balance proteins, whole grains, and fruits to fuel muscle growth and replenish energy levels."</p>
+                    </div>
+                    <div class="image">
+                        <img src="./sat.jpg" alt="Image">
+                        <h3>SATURDAY SETS</h3>
+                        <p style="color:rgb(2, 11, 50)">"Saturday: Active recovery and light cardio. 
+                            Focus on hydration, proteins, and nutrient-dense foods to support recovery and overall wellness."</p>
+                    </div>
+                    <div class="image">
+                        <img src="sunday.jpg" alt="Image">
+                        <h3>SUNDAY RESTS</h3>
+                        <p style="color:rgb(2, 11, 50)">"Sunday: Rest day. 
+                            Prioritize hydration, balanced meals, and relaxation to rejuvenate and prepare for the upcoming week's workouts."</p>
+                    </div>
+                </div>
+            </div>
+      </div>  
+</body>
+</html>

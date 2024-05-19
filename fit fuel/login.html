@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Page</title>
+    <style>
+        body{
+    background: rgb(34,193,195);
+    background-image: linear-gradient(to bottom right,#683af0,#79a0da,#98E4FF,#a0d5f8,rgb(42, 139, 224));
+    background-attachment: fixed;
+    margin:0;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color:rgb(44, 21, 93);
+}
+
+#form{
+    width:400px;
+    margin:20vh auto 0 auto;
+    background-color: rgba(248, 241, 241, 0.375);
+    border-radius: 5px;
+    padding:30px;
+}
+
+h1{
+    text-align: center;
+    color:#27005D;
+}
+
+#form button{
+    background-color:#27005D;
+    color:white;
+    border: 1px solid #27005D;
+    border-radius: 5px;
+    padding:10px;
+    margin:20px 0px;
+    cursor:pointer;
+    font-size:20px;
+    width:100%;
+}
+#form button:hover {
+    background-color: #5e37ec;;
+  }
+
+
+.input-group{
+    display:flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.input-group input{
+    border-radius: 5px;
+    font-size:20px;
+    margin-top:5px;
+    padding:10px;
+    border:1px solid rgb(34,193,195) ;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+#bordertext{
+    font-family:serif;
+    font-size: 15px;
+    color:rgb(3, 98, 102);
+}
+
+#head{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+}
+
+    </style>
+    </head>
+<body>
+
+<div class="container" id="box">
+    <h1>Welcome to Fit Fuel</h1>   
+    <center>
+        <form  id="form" name="f1">
+     <div class="input-group">
+     <label for="username">Name</label>
+        <div class="row">
+            <div class="col">
+              <input type="text" class="form-control" placeholder="First name" name="fname">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Last name" name="lname">
+            </div>
+          </div>
+     </div>
+     <div class="input-group">
+              <label for="birthdate">Birth Date</label>
+              <div class="row">
+                <div class="col-md-6">
+                    <input type="text" class="form-control" placeholder="DD/MM/YYYY" name="month">
+                </div>
+              </div>
+                
+            </div>
+     
+
+     
+     <div class="input-group">
+     <label for="genders">Gender</label>
+     <div class="row">
+        <div class="col-md-6">
+     <select class="form-control" name="gender">
+        <option>Male</option>
+        <option>Female</option>
+        <option>Other</option>
+      </select>
+    </div>
+     </div>
+     </div>
+
+
+
+     <div class="input-group">
+           <div class="row">
+               <div class="col">
+                 <input type="text" class="form-control"  name="city">
+                 <div class="form-text" id="bordertext">City</div>
+               </div>
+               <div class="col">
+                 <input type="text" class="form-control" name="state">
+                 <div class="form-text" id="bordertext">State/Province</div>
+               </div>
+             </div>
+        </div>
+        <div class="input-group">
+          <label for="email">Email</label>
+          <div class="row">
+            <div class="col-md-6">
+                <input type="text" class="form-control" placeholder="ex:name@email.com"  name="email">
+                <div class="form-text" id="bordertext">example@example.com</div>
+            </div>
+          </div> 
+        </div>
+        <div class="input-group">
+          <label for="mobile">Mobile Number</label>
+          <div class="row">
+            <div class="col-md-6">
+                <input type="text" class="form-control" placeholder="ex:name@email.com"  name="email">
+                
+            </div>
+          </div> 
+        </div>
+      
+            
+       
+     <button type="submit">Register</button>
+     </form>
+     
+     </div>
+</div>
+</center>
+
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Page</title>
+    <style>
+        body, html {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, 'Arial Narrow', Arial, sans-serif;
+            font-size: 20px;
+            font-weight: bold;
+            color: rgb(2, 64, 56);
+            background: #ffffff;
+            background-attachment: fixed;
+        }
+        
+        .bubbles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+        }
+        
+        .bubble {
+            position: absolute;
+            bottom: -100px;
+            width: 40px;
+            height: 40px;
+            background: #23dda8;
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: rise 5s infinite ease-in;
+        }
+        
+        .bubble:nth-child(1) { left: 10%; animation-duration: 8s; }
+        .bubble:nth-child(2) { width: 20px; height: 20px; left: 20%; animation-duration: 5s; animation-delay: 1s; }
+        .bubble:nth-child(3) { width: 50px; height: 50px; left: 35%; animation-duration: 7s; animation-delay: 2s; }
+        .bubble:nth-child(4) { width: 80px; height: 80px; left: 50%; animation-duration: 11s; }
+        .bubble:nth-child(5) { width: 35px; height: 35px; left: 55%; animation-duration: 6s; animation-delay: 1s; }
+        .bubble:nth-child(6) { width: 45px; height: 45px; left: 65%; animation-duration: 8s; animation-delay: 3s; }
+        .bubble:nth-child(7) { width: 90px; height: 90px; left: 70%; animation-duration: 12s; animation-delay: 2s; }
+        .bubble:nth-child(8) { width: 25px; height: 25px; left: 80%; animation-duration: 6s; animation-delay: 2s; }
+        .bubble:nth-child(9) { width: 15px; height: 15px; left: 70%; animation-duration: 5s; animation-delay: 1s; }
+        .bubble:nth-child(10) { width: 90px; height: 90px; left: 25%; animation-duration: 10s; animation-delay: 4s; }
+        
+        @keyframes rise {
+            0% { bottom: -100px; transform: translateX(0); }
+            50% { transform: translateX(100px); }
+            100% { bottom: 1080px; transform: translateX(-200px); }
+        }
+        
+        #form-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+            z-index: 1;
+        }
+        
+        #form {
+            width: 90%;
+            max-width: 500px;
+            background-color: rgba(171, 246, 246, 0.469);
+            border-radius: 5px;
+            padding: 30px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #005d3e;
+        }
+        
+        .lbutton {
+            background-color: #027f5c;
+            color: white;
+            border: 1px solid #027f5c;
+            border-radius: 5px;
+            padding: 5px;
+            margin: 10px 0px;
+            cursor: pointer;
+            font-size: 20px;
+            width: 100%;
+        }
+        
+        
+        .lbutton:hover {
+            background-color: #09a878;
+        }
+        
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+        }
+        
+        .input-group input {
+            border-radius: 5px;
+            font-size: 20px;
+            margin-top: 5px;
+            padding: 10px;
+            border: 1px solid rgb(34, 193, 195);
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div id="form-container">
+        <form id="form" name="f1" action="#" method="post">
+            <h1>Login</h1>
+            <div class="input-group">
+                <label for="username">Name</label>
+                <input type="text" id="username" class="form-control" placeholder="Username" name="fname" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" class="form-control" placeholder="Password" name="password" required>
+            </div>
+           <center> <a href="./activity.html" style="text-decoration:none"<button type="submit" class="lbutton">Login</button></a></center>
+        </form>
+    </div>
+    
+    <div class="bubbles">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+</body>
+</html>

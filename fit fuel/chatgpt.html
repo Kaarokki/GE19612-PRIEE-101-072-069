@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Analyzer Chatbot with Shooting Stars</title>
+    <style>
+        /* Global styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+            margin: 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .chat-container {
+            width: 400px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #e0dcdc;
+            position: relative;
+            z-index: 10;
+        }
+
+        .chat-box {
+            padding: 20px;
+            height: 400px;
+            overflow-y: scroll;
+            border-bottom: 1px solid #fffdfd;
+        }
+
+        .message {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 4px;
+            max-width: 80%;
+        }
+
+        .user-message {
+            background-color: #fffbfb;
+            align-self: flex-end;
+        }
+
+        .bot-message {
+            background-color: #c568f4bc;
+            align-self: flex-start;
+        }
+
+        .input-container {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Shooting star styles */
+        section {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgb(0, 0, 0);
+            background-size: cover;
+            z-index: 1;
+        }
+
+        @keyframes animateBg {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        span {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1), 0 0 0 8px rgba(255, 255, 255, 0.1), 0 0 20px rgba(255, 255, 255, 0.1);
+            animation: animate 3s linear infinite;
+        }
+
+        span::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 300px;
+            height: 1px;
+            background: linear-gradient(90deg, #fff, transparent);
+        }
+
+        @keyframes animate {
+            0% {
+                transform: rotate(315deg) translateX(0);
+                opacity: 1;
+            }
+            70% {
+                opacity: 1;
+            }
+            100% {
+                transform: rotate(315deg) translateX(-1000px);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<section id="stars"></section>
+
+<div class="chat-container">
+    <div class="chat-box" id="chat-box">
+        <div class="message bot-message">Hello! I'm your fitness analyzer chatbot. How can I help you today?</div>
+    </div>
+    <div class="input-container">
+        <input type="text" id="user-input" placeholder="Type your message here..." onkeypress="if(event.keyCode==13) sendMessage()">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</div>
+
+<script>
+    function sendMessage() {
+        const userInput = document.getElementById('user-input').value;
+        if (userInput.trim() === '') return;
+
+        addMessage(userInput, 'user-message');
+
+        // Simulate bot response (In a real-world scenario, you would send this to a backend server)
+        setTimeout(() => {
+            const botResponse = getBotResponse(userInput);
+            addMessage(botResponse, 'bot-message');
+        }, 1000);
+
+        document.getElementById('user-input').value = '';
+        document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
+    }
+
+    function addMessage(text, className) {
+        const chatBox = document.getElementById('chat-box');
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('message', className);
+        messageDiv.textContent = text;
+        chatBox.appendChild(messageDiv);
+    }
+
+    function getBotResponse(userInput) {
+        // Bot response logic
+        userInput = userInput.toLowerCase();
+        
+        if (userInput.includes('bmi')) {
+            return calculateBMI(userInput);
+        } else if (userInput.includes('exercise')) {
+            return 'Exercise benefits include improved cardiovascular health, increased muscle strength, enhanced flexibility, better mood, and weight management. It also reduces the risk of chronic diseases. For optimal health, adults should aim for at least 150 minutes of moderate-intensity or 75 minutes of vigorous-intensity exercise per week, plus muscle-strengthening activities twice weekly.';
+        } else if (userInput.includes('diet')) {
+            return 'A balanced diet provides essential nutrients, supports energy levels, and promotes overall health. Benefits include weight management, improved mood, better digestion, and reduced risk of chronic diseases. The duration of maintaining a healthy diet is lifelong to sustain these benefits and ensure long-term health and well-being.';
+        } else if (userInput.includes('protein')) {
+            return 'Protein is essential for building and repairing tissues, and its important for muscle growth. Good sources of protein include meat, fish, eggs, dairy products, legumes, and nuts.';
+        } else if (userInput.includes('carbs') || userInput.includes('carbohydrates')) {
+            return 'Carbohydrates are the body\'s main source of energy. Choose complex carbs like whole grains, fruits, and vegetables over refined carbs like white bread and sugary snacks.';
+        } else if (userInput.includes('fat')) {
+            return 'Healthy fats, such as those found in avocados, nuts, seeds, and olive oil, are important for brain function and hormone production. However, limit intake of saturated and trans fats found in processed foods.';
+        } else if (userInput.includes('hi') || userInput.includes('hello')) {
+            return 'HELLO Fitness freak , HOW MAY I GUIDE YOU TODAY?'; 
+        } else {
+            return 'Sorry, I can only help with exercise, diet, calorie, protein, carb, and fat related questions.';
+        }
+    }
+
+    function calculateBMI(input) {
+        const weightMatch = input.match(/(\d+\.?\d*)\s*/);
+        const bmi = parseInt(weightMatch);
+        return getBMIResult(bmi);
+    }
+
+    function getBMIResult(bmi) {
+        if (bmi < 18.5) {
+            return `Your BMI is ${bmi.toFixed(1)} You are Underweight.Diet:[turkey, fish, eggs, brown rice ,olive oil, and fatty fish] .YOGA:[Surya Namaskar, Bhujangasana] Workout Schedule: [Strength Training,Cardiovascular Exercise]`;
+        } else if (bmi >= 18.5 && bmi < 24.9) {
+            return `Your BMI is ${bmi.toFixed(1)} You are Normal.Diet:[tofu, legumes, and dairy products,oats, avocados] Yoga:[Surya Namaskar,Bhujangasana,Vrikshasana]Workout Schedule: [ brisk walking, jogging, cycling, or swimming]`;
+        } else if (bmi >= 25 && bmi < 29.9) {
+            return `Your BMI is ${bmi.toFixed(1)}. You are overweight. Diet:[ low-fat dairy products,fruits, vegetables, and legumes] .YOGA:[Virabhadrasana,Dhanurasana] Workout Schedule: [brisk walking, jogging, cycling, or swimming for at least 150 minutes per week.]`;
+        } else {
+            return `Your BMI is ${bmi.toFixed(1)}. You are in the obese range.Diet:[ low-fat dairy products,fruits, vegetables, and legumes] .YOGA:[Virabhadrasana,Dhanurasana] Workout Schedule: [brisk walking, jogging, cycling, or swimming for at least 150 minutes per week.].`;
+        }
+    }
+
+    // Shooting star creation
+    function createShootingStars() {
+        const starsContainer = document.getElementById('stars');
+
+        for (let i = 0; i < 10; i++) {
+            const star = document.createElement('span');
+            const topPosition = Math.random() * window.innerHeight + 'px';
+            const leftPosition = Math.random() * window.innerWidth + 'px';
+            const delay = Math.random() * 5 + 's';
+            const duration = Math.random() * 3 + 2 + 's';
+
+            star.style.top = topPosition;
+            star.style.left = leftPosition;
+            star.style.animationDelay = delay;
+            star.style.animationDuration = duration;
+
+            starsContainer.appendChild(star);
+        }
+    }
+
+    createShootingStars();
+</script>
+
+</body>
+</html>
